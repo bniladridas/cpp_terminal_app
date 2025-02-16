@@ -1,0 +1,3 @@
+/Users/niladridas/Desktop/projects/Llama/cpp_terminal_app/build/CMakeFiles/LlamaTerminalApp.dir
+/Users/niladridas/Desktop/projects/Llama/cpp_terminal_app/build/CMakeFiles/edit_cache.dir
+/Users/niladridas/Desktop/projects/Llama/cpp_terminal_app/build/CMakeFiles/rebuild_cache.dir
