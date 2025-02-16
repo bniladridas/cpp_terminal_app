@@ -101,6 +101,47 @@ To better understand the data received during execution, logging statements have
 ### Issue Resolution
 An issue was identified where an invalid character in the JSON payload caused errors during execution. This was resolved by properly escaping newline characters in the payload. The application is now functioning correctly, and responses are generated as expected.
 
+## Installation Instructions
+
+To set up the Llama C++ Terminal Application, follow these steps:
+
+### Prerequisites
+- Ensure you have the necessary build tools installed, such as CMake and Make.
+
+### Dependencies
+- The following packages are required:
+  - `libcurl4-openssl-dev`
+  - `libncurses-dev`
+  - `libtinfo6`
+
+### Setting Up the Development Environment
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/bniladridas/cpp_terminal_app.git
+   cd cpp_terminal_app
+   ```
+2. Update the package lists and install dependencies:
+   ```bash
+   sudo apt-get update
+   sudo apt-get install -y libcurl4-openssl-dev libncurses-dev libtinfo6
+   ```
+3. Set up CUDA (if applicable):
+   - Follow the instructions in the workflow for setting up CUDA.
+
+### Building the Application
+- To build the application, run:
+  ```bash
+  mkdir build && cd build
+  cmake ..
+  make
+  ```
+
+### Running Tests
+- To run the tests, execute:
+  ```bash
+  ctest
+  ```
+
 ## Acknowledgments
 
 - **Llama Model**: Developed by Meta, the Llama model is a state-of-the-art language model designed for advanced natural language processing tasks.
@@ -214,5 +255,3 @@ sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev && cmake -S 
 ```bash
 mkdir build && cd build && cmake .. && make && ./LlamaTerminalApp
 ```
-
-
