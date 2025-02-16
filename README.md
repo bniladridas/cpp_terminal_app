@@ -1,4 +1,10 @@
----
+![Llama](https://img.shields.io/badge/Llama-AI-brightgreen)
+![C++](https://img.shields.io/badge/C++-Programming-blue)
+![GPU](https://img.shields.io/badge/GPU-Enabled-orange)
+![NLP](https://img.shields.io/badge/NLP-Natural%20Language%20Processing-yellow)
+![Deep Learning](https://img.shields.io/badge/Deep%20Learning-Enabled-red)
+![Version](https://img.shields.io/badge/Version-1.0.0-lightgrey)
+![Model](https://img.shields.io/badge/Model-Llama%203.2-lightblue)
 
 **Tags**: Llama, AI, C++, GPU, Natural Language Processing, NLP, Deep Learning, Meta AI
 
