@@ -2,28 +2,29 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "optimize-algorithm" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "optimize-algorithm" ]
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      CUDA_TOOLKIT_ROOT_DIR: /usr/local/cuda
 
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev
-    - name: Set up CMake
-      uses: lukka/get-cmake@v3.21.2
-    - name: Remove CMake cache
-      run: rm -rf build
-    - name: Configure CMake
-      run: cmake -S . -B build
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libcurl4-openssl-dev
+    - name: Setup CUDA
+      run: |
+        sudo apt-get install -y cuda
     - name: Build
-      run: cmake --build build
-    - name: Run tests
+      run: mkdir build && cd build && cmake .. && make
+    - name: Test
       run: cd build && ctest
     - name: Check for GPU availability
       run: |
