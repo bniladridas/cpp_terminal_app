@@ -175,6 +175,52 @@ llama_env(base) Niladris-MacBook-Air:build niladridas$
    ./LlamaTerminalApp
    ```
 
-Follow these steps to set up and run the Llama C++ terminal application.
+## Running in a Large-Scale AI Factory Environment
+
+To run the application in a large-scale AI factory environment, follow these additional steps:
+
+1. **Ensure GPU and CUDA Availability**:
+   - Verify that the system has a compatible GPU installed.
+   - Ensure that CUDA is installed and properly configured.
+
+2. **Distributed Computing Setup**:
+   - Configure the application to use multiple threads for distributed computing.
+   - Adjust the number of threads based on the available resources.
+
+3. **Build and Run**:
+   - Build the application using the provided CMake configuration.
+   - Run the application with the necessary parameters for large-scale processing.
+
+Example command to run with distributed computing:
+```bash
+./LlamaTerminalApp --threads 8
+```
+
+4. **Monitor Resource Usage**:
+   - Use system monitoring tools to track CPU and GPU utilization.
+   - Ensure that the application is efficiently utilizing the available resources.
+
+5. **Optimize Performance**:
+   - Fine-tune the application parameters to achieve optimal performance.
+   - Consider using profiling tools to identify and address performance bottlenecks.
+
+By following these steps, you can effectively run the Llama C++ terminal application in a large-scale AI factory environment, leveraging the power of GPUs and distributed computing for enhanced performance.
+
+## Build, Test, and Run Commands
+
+### Build
+```bash
+mkdir build && cd build && cmake .. && make
+```
+
+### Test
+```bash
+sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev && cmake -S . -B build && cmake --build build && cd build && ctest
+```
+
+### Run
+```bash
+mkdir build && cd build && cmake .. && make && ./LlamaTerminalApp
+```
 
 ![Love Hacking](img/love_hacking.png)

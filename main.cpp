@@ -10,6 +10,9 @@
 #endif
 #include <cmath>
 #include <algorithm>
+#include <thread>
+#include <vector>
+#include <future>
 
 class LlamaStack {
 private:
@@ -49,9 +52,36 @@ public:
 
         return "Response received";
     }
+
+    std::string completion_distributed(const std::string &prompt, int num_threads) {
+        std::vector<std::future<std::string>> futures;
+        for (int i = 0; i < num_threads; ++i) {
+            futures.push_back(std::async(std::launch::async, &LlamaStack::completion, this, prompt));
+        }
+
+        std::string combined_response;
+        for (auto &f : futures) {
+            combined_response += f.get() + "\n";
+        }
+
+        return combined_response;
+    }
 };
 
+void checkGPUAvailability() {
+    std::cout << "Checking for GPU availability..." << std::endl;
+    // Placeholder for actual GPU availability check
+}
+
+void checkCUDAInstallation() {
+    std::cout << "Checking for CUDA installation..." << std::endl;
+    // Placeholder for actual CUDA installation check
+}
+
 int main() {
+    checkGPUAvailability();
+    checkCUDAInstallation();
+
     LlamaStack llama(true);
     std::string user_message;
 
@@ -64,7 +94,7 @@ int main() {
     std::cout << "JSON Payload: {\"model\": \"llama3.2\", \"prompt\": \"" + prompt + "\", \"stream\": false}" << std::endl;
 
     auto start_time = std::chrono::high_resolution_clock::now();
-    std::string response = llama.completion(prompt);
+    std::string response = llama.completion_distributed(prompt, 4); // Using 4 threads for distributed computing
     std::cout << "Response received: " << response << std::endl;
     std::cout << "Response details: " << response << std::endl;
     auto end_time = std::chrono::high_resolution_clock::now();

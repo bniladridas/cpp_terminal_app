@@ -6,4 +6,7 @@ set(CMAKE_CXX_STANDARD 11)
 add_executable(LlamaTerminalApp main.cpp)
 
 find_package(CURL REQUIRED)
-target_link_libraries(LlamaTerminalApp PRIVATE CURL::libcurl)
+find_package(OpenMP REQUIRED)
+find_package(CUDA REQUIRED)
+
+target_link_libraries(LlamaTerminalApp PRIVATE CURL::libcurl OpenMP::OpenMP_CXX CUDA::cudart)

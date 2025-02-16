@@ -25,3 +25,19 @@ jobs:
       run: cmake --build build
     - name: Run tests
       run: cd build && ctest
+    - name: Check for GPU availability
+      run: |
+        if command -v nvidia-smi &> /dev/null
+        then
+          echo "GPU is available"
+        else
+          echo "GPU is not available"
+        fi
+    - name: Check for CUDA installation
+      run: |
+        if [ -d "/usr/local/cuda" ]
+        then
+          echo "CUDA is installed"
+        else
+          echo "CUDA is not installed"
+        fi

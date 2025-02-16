@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "test": "sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev && cmake -S . -B build && cmake --build build && cd build && ctest",
+    "build": "mkdir build && cd build && cmake .. && make",
+    "launch": "mkdir build && cd build && cmake .. && make && ./LlamaTerminalApp"
+  }
+}
