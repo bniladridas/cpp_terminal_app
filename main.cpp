@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <sys/sysctl.h>
 #include <cmath>
+#include <algorithm>
 
 class LlamaStack {
 private:
@@ -29,6 +30,11 @@ public:
         if (!curl) return "Error initializing cURL";
 
         std::string json_payload = "{\"model\": \"llama3.2\", \"prompt\": \"" + prompt + "\", \"stream\": false}";
+        size_t pos = 0;
+        while ((pos = json_payload.find('\n', pos)) != std::string::npos) {
+            json_payload.replace(pos, 1, "\\n");
+            pos += 2; // Move past the new replacement
+        }
 
         curl_easy_setopt(curl, CURLOPT_URL, base_url.c_str());
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json_payload.c_str());
@@ -52,8 +58,13 @@ int main() {
 
     std::string prompt = "You are a highly knowledgeable and friendly AI assistant. Please provide clear, concise, and engaging answers.\n\nUser: " + user_message + "\nAssistant:";
 
+    std::cout << "Prompt: " << prompt << std::endl;
+    std::cout << "JSON Payload: {\"model\": \"llama3.2\", \"prompt\": \"" + prompt + "\", \"stream\": false}" << std::endl;
+
     auto start_time = std::chrono::high_resolution_clock::now();
     std::string response = llama.completion(prompt);
+    std::cout << "Response received: " << response << std::endl;
+    std::cout << "Response details: " << response << std::endl;
     auto end_time = std::chrono::high_resolution_clock::now();
 
     std::chrono::duration<double> duration = end_time - start_time;

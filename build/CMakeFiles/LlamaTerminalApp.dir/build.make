@@ -76,15 +76,15 @@ CMakeFiles/LlamaTerminalApp.dir/main.cpp.o: CMakeFiles/LlamaTerminalApp.dir/flag
 CMakeFiles/LlamaTerminalApp.dir/main.cpp.o: /Users/niladridas/Desktop/projects/Llama/cpp_terminal_app/main.cpp
 CMakeFiles/LlamaTerminalApp.dir/main.cpp.o: CMakeFiles/LlamaTerminalApp.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/niladridas/Desktop/projects/Llama/cpp_terminal_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/LlamaTerminalApp.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LlamaTerminalApp.dir/main.cpp.o -MF CMakeFiles/LlamaTerminalApp.dir/main.cpp.o.d -o CMakeFiles/LlamaTerminalApp.dir/main.cpp.o -c /Users/niladridas/Desktop/projects/Llama/cpp_terminal_app/main.cpp
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LlamaTerminalApp.dir/main.cpp.o -MF CMakeFiles/LlamaTerminalApp.dir/main.cpp.o.d -o CMakeFiles/LlamaTerminalApp.dir/main.cpp.o -c /Users/niladridas/Desktop/projects/Llama/cpp_terminal_app/main.cpp
 
 CMakeFiles/LlamaTerminalApp.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/LlamaTerminalApp.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/niladridas/Desktop/projects/Llama/cpp_terminal_app/main.cpp > CMakeFiles/LlamaTerminalApp.dir/main.cpp.i
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/niladridas/Desktop/projects/Llama/cpp_terminal_app/main.cpp > CMakeFiles/LlamaTerminalApp.dir/main.cpp.i
 
 CMakeFiles/LlamaTerminalApp.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LlamaTerminalApp.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/niladridas/Desktop/projects/Llama/cpp_terminal_app/main.cpp -o CMakeFiles/LlamaTerminalApp.dir/main.cpp.s
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/niladridas/Desktop/projects/Llama/cpp_terminal_app/main.cpp -o CMakeFiles/LlamaTerminalApp.dir/main.cpp.s
 
 # Object files for target LlamaTerminalApp
 LlamaTerminalApp_OBJECTS = \
