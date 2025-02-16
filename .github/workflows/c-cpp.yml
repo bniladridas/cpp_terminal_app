@@ -16,13 +16,25 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
     - name: Update package lists
       run: sudo apt-get update
+
     - name: Install dependencies
       run: |
         sudo apt-get install -y libcurl4-openssl-dev
-        sudo apt-get install -y libncurses-dev   # Alternative to libncurses5
-        sudo apt-get install -y libtinfo-dev     # Alternative to libtinfo5
+        sudo apt-get install -y libncurses-dev
+        sudo apt-get install -y libtinfo6  # Attempt to install libtinfo6 as an alternative
+
+    # Uncomment the following section if libtinfo6 does not resolve the issue
+    # - name: Add older repository and install dependencies
+    #   run: |
+    #     sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu/ bionic main restricted universe multiverse"
+    #     sudo apt-get update
+    #     sudo apt-get install -y libcurl4-openssl-dev
+    #     sudo apt-get install -y libncurses-dev
+    #     sudo apt-get install -y libtinfo5
+
     - name: Setup CUDA
       run: |
         sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
@@ -30,10 +42,13 @@ jobs:
         sudo sh -c 'echo "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda.list'
         sudo apt-get update
         sudo apt-get install -y cuda
+
     - name: Build
       run: mkdir build && cd build && cmake .. && make
+
     - name: Test
       run: cd build && ctest
+
     - name: Check for GPU availability
       run: |
         if command -v nvidia-smi &> /dev/null
@@ -42,6 +57,7 @@ jobs:
         else
           echo "GPU is not available"
         fi
+
     - name: Check for CUDA installation
       run: |
         if [ -d "/usr/local/cuda" ]
@@ -50,3 +66,24 @@ jobs:
         else
           echo "CUDA is not installed"
         fi
+
+  alternative-install:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Update package lists
+      run: sudo apt-get update
+
+    - name: Add older repository and install dependencies
+      run: |
+        sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu/ bionic main restricted universe multiverse"
+        sudo apt-get update
+        sudo apt-get install -y libcurl4-openssl-dev
+        sudo apt-get install -y libncurses-dev
+        sudo apt-get install -y libtinfo5
+
+    # Add the rest of your workflow steps here if needed
