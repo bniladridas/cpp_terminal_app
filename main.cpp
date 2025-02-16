@@ -5,7 +5,9 @@
 #include <curl/curl.h>
 #include <sys/resource.h>
 #include <sys/types.h>
+#ifdef __APPLE__
 #include <sys/sysctl.h>
+#endif
 #include <cmath>
 #include <algorithm>
 
