@@ -215,4 +215,4 @@ sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev && cmake -S 
 mkdir build && cd build && cmake .. && make && ./LlamaTerminalApp
 ```
 
-![Love Hacking](img/love_hacking.png)
+
