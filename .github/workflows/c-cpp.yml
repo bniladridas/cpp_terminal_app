@@ -14,11 +14,12 @@ jobs:
       CUDA_TOOLKIT_ROOT_DIR: /usr/local/cuda
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Update package lists
+      run: sudo apt-get update
     - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y libcurl4-openssl-dev libtinfo5
+      run: sudo apt-get install -y libcurl4-openssl-dev libncurses5 libtinfo5
     - name: Setup CUDA
       run: |
         sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
