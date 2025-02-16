@@ -98,6 +98,17 @@ Enter your message: helo
 Response: I'm here to help with any questions or topics you'd like to explore. What's on your mind?
 ```
 
+## Recent Updates
+
+### Logging Enhancements
+To better understand the data received during execution, logging statements have been added to the `main.cpp` file. These logs capture:
+- The input prompt before sending it to the server.
+- The JSON payload being sent.
+- The response received from the server.
+
+### Issue Resolution
+An issue was identified where an invalid character in the JSON payload caused errors during execution. This was resolved by properly escaping newline characters in the payload. The application is now functioning correctly, and responses are generated as expected.
+
 ## Acknowledgments
 
 - **Llama Model**: Developed by Meta, the Llama model is a state-of-the-art language model designed for advanced natural language processing tasks.
