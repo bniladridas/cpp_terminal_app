@@ -1,3 +1,5 @@
+# Llama C++ Terminal Application
+
 ![Llama](https://img.shields.io/badge/Llama-AI-brightgreen)
 ![C++](https://img.shields.io/badge/C++-Programming-blue)
 ![GPU](https://img.shields.io/badge/GPU-Enabled-orange)
@@ -6,15 +8,11 @@
 ![Version](https://img.shields.io/badge/Version-1.0.0-lightgrey)
 ![Model](https://img.shields.io/badge/Model-Llama%203.2-lightblue)
 
-**Tags**: Llama, AI, C++, GPU, Natural Language Processing, NLP, Deep Learning, Meta AI
-
-**Version**: 1.0.0
-
+**Tags**: Llama, AI, C++, GPU, Natural Language Processing, NLP, Deep Learning, Meta AI  
+**Version**: 1.0.0  
 **Model Information**: Llama 3.2 - A state-of-the-art language model developed by Meta for advanced natural language processing tasks.
 
 ---
-
-# Llama C++ Terminal Application
 
 ## Overview
 This application is a terminal-based interface for interacting with the Llama model.
