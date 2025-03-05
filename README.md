@@ -12,6 +12,10 @@
 **Version**: 1.0.0  
 **Model Information**: Llama 3.2 - A state-of-the-art language model developed by Meta for advanced natural language processing tasks.
 
+<div style="text-align: center;">
+  <img src="https://raw.githubusercontent.com/bniladridas/cpp_terminal_app/main/img/Alma.png" alt="Alma Image">
+</div>
+
 ---
 
 ## Overview
