@@ -178,3 +178,6 @@ llama_env(base) Niladris-MacBook-Air:build niladridas$
 Follow these steps to set up and run the Llama C++ terminal application.
 
 ![Love Hacking](img/love_hacking.png)
+
+## Age Restriction
+This application is not suitable for kids. It should be used by individuals aged 18 and above. The application may contain potential inappropriate content, and parental guidance is advised for younger users.
