@@ -1,3 +1,8 @@
+
+<div style="text-align: center;">
+  <img src="https://raw.githubusercontent.com/bniladridas/cpp_terminal_app/main/img/Alma.png" alt="Alma Image">
+</div>
+
 # Llama C++ Terminal Application
 
 ![Llama](https://img.shields.io/badge/Llama-AI-brightgreen)
@@ -12,18 +17,60 @@
 **Version**: 1.0.0  
 **Model Information**: Llama 3.2 - A state-of-the-art language model developed by Meta for advanced natural language processing tasks.
 
-<div style="text-align: center;">
-  <img src="https://raw.githubusercontent.com/bniladridas/cpp_terminal_app/main/img/Alma.png" alt="Alma Image">
-</div>
 
 ---
 
 ## Overview
 This application is a terminal-based interface for interacting with the Llama model.
 
+## CI/CD Pipeline
+This project utilizes Continuous Integration and Continuous Deployment (CI/CD) to ensure code quality and automate the deployment process. The CI/CD pipeline is configured using GitHub Actions.
+
+### CI/CD Workflow
+1. **Build and Test**: On each push to the `main` branch, the project is built and tests are executed to ensure code integrity.
+2. **Deployment**: After successful tests, the application is deployed to the specified environment.
+
+### Configuration
+The CI/CD pipeline is configured in the `.github/workflows` directory. Below is an example of a GitHub Actions workflow configuration:
+
+```yaml
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up CMake
+      uses: lukka/get-cmake@v3.21.2
+
+    - name: Build the application
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        make
+
+    - name: Run tests
+      run: |
+        cd build
+        ctest
+```
+
+### Adding Your Own CI/CD Workflow
+To add your own CI/CD workflow, create a new YAML file in the `.github/workflows` directory and define your build, test, and deployment steps.
+
 ## CPU Usage Calculation
 ### Using getrusage
-The code uses the `getrusage` function from the `<sys/resource.h>` library to retrieve resource usage statistics for the calling process. The function populates a `rusage` structure that contains various resource usage metrics, including user time and system time.
+The code uses the `getrusage` function from the `<sys/resource.h>` library to retrieve resource usage statistics for the calling process. The function populates a `rusage` structure that contains [...]
 
 Here's how it's done in the code:
 ```cpp
@@ -41,7 +88,7 @@ The code currently contains a placeholder for GPU usage, represented as:
 ```cpp
 int gpu_usage = 0;  // Replace with actual GPU usage logic if available
 ```
-This means that the actual logic to calculate GPU usage is not implemented in the current version of the code. In a complete implementation, you would typically use specific GPU libraries or APIs (like CUDA or OpenCL) to query the GPU for its current utilization.
+This means that the actual logic to calculate GPU usage is not implemented in the current version of the code. In a complete implementation, you would typically use specific GPU libraries or APIs [...]
 
 ### Summary
 - **CPU Usage**: Calculated using `getrusage` to retrieve the amount of CPU time consumed by the process.
@@ -52,22 +99,22 @@ If you want to implement actual GPU usage measurement, you would need to integra
 ## Llama Model Implementation
 
 ### Overview
-The Llama model is a state-of-the-art language model designed for various natural language processing tasks. This section provides an in-depth look at how the Llama model is integrated into the C++ terminal application.
+The Llama model is a state-of-the-art language model designed for various natural language processing tasks. This section provides an in-depth look at how the Llama model is integrated into the C++ application.
 
 ## Llama Model Details
 
-The application utilizes the Llama 3.2 model, which is designed for advanced natural language processing tasks. This model is capable of generating human-like text based on the prompts provided by the user. The Llama model is known for its performance in various NLP applications, including chatbots, content generation, and more.
+The application utilizes the Llama 3.2 model, which is designed for advanced natural language processing tasks. This model is capable of generating human-like text based on the prompts provided by [...]
 
-The Llama 3.2 model is a specific variant of the Llama model family, which is trained on a large corpus of text data. This model is fine-tuned for tasks such as conversational dialogue, text summarization, and language translation. The Llama 3.2 model has 3.2 billion parameters, which allows it to capture complex patterns and relationships in language.
+The Llama 3.2 model is a specific variant of the Llama model family, which is trained on a large corpus of text data. This model is fine-tuned for tasks such as conversational dialogue, text summarization, and more.
 
 ### Architecture
-The Llama model is based on a transformer architecture, which is a type of neural network designed primarily for sequence-to-sequence tasks. The model consists of an encoder and a decoder, both of which are composed of multiple layers of self-attention and feed-forward neural networks.
+The Llama model is based on a transformer architecture, which is a type of neural network designed primarily for sequence-to-sequence tasks. The model consists of an encoder and a decoder, both of which are used to process and generate text.
 
 ### Training
-The Llama model is trained on a large corpus of text data, which is used to fine-tune the model's parameters. The training process involves optimizing the model's parameters to minimize the difference between the predicted output and the actual output.
+The Llama model is trained on a large corpus of text data, which is used to fine-tune the model's parameters. The training process involves optimizing the model's parameters to minimize the difference between the predicted and actual outputs.
 
 ### Initialization
-The Llama model is initialized through the `LlamaStack` class, which handles the API interactions and manages the model's lifecycle. The initialization process includes setting up the necessary parameters, such as whether to use the GPU for processing.
+The Llama model is initialized through the `LlamaStack` class, which handles the API interactions and manages the model's lifecycle. The initialization process includes setting up the necessary parameters and configurations for the model.
 
 ```cpp
 LlamaStack llama(true); // Initialize with GPU usage
@@ -88,7 +135,7 @@ std::string response = llama.completion(prompt);
 ```
 
 ### Error Handling
-The implementation includes error handling to manage potential issues during the API call, such as connection errors or timeouts. This ensures that the application can gracefully handle errors and provide feedback to the user.
+The implementation includes error handling to manage potential issues during the API call, such as connection errors or timeouts. This ensures that the application can gracefully handle errors and provide meaningful feedback to the user.
 
 ### Resource Management
 The application monitors resource usage, including CPU and GPU utilization, to provide insights into performance. This is achieved using system calls to retrieve usage statistics.
@@ -109,7 +156,7 @@ To better understand the data received during execution, logging statements have
 - The response received from the server.
 
 ### Issue Resolution
-An issue was identified where an invalid character in the JSON payload caused errors during execution. This was resolved by properly escaping newline characters in the payload. The application is now functioning correctly, and responses are generated as expected.
+An issue was identified where an invalid character in the JSON payload caused errors during execution. This was resolved by properly escaping newline characters in the payload. The application is now more robust and handles such cases gracefully.
 
 ## Acknowledgments
 
@@ -145,7 +192,7 @@ std::cout << "Duration: " << duration.count() << " seconds" << std::endl;
 ```
 
 ### Summary
-The duration is measured in seconds using `std::chrono::high_resolution_clock`, which provides precise timing. The difference between the end time and start time gives the total time taken for the model to process the input.
+The duration is measured in seconds using `std::chrono::high_resolution_clock`, which provides precise timing. The difference between the end time and start time gives the total time taken for the operation.
 
 ## Log Output
 
@@ -153,7 +200,7 @@ The duration is measured in seconds using `std::chrono::high_resolution_clock`, 
 ```plaintext
 llama_env(base) Niladris-MacBook-Air:build niladridas$ cd /Users/niladridas/Desktop/projects/Llama/cpp_terminal_app/build && ./LlamaTerminalApp
 Enter your message: helo
-{"model":"llama3.2","created_at":"2025-02-16T00:21:48.723509Z","response":"I'm here to help with any questions or topics you'd like to explore. What's on your mind?","done":true,"done_reason":"stop","context":[128006,9125,128007,271,38766,1303,33025,2696,25,6790,220,2366,18,271,128009,128006,882,128007,271,2675,527,264,7701,42066,323,11919,15592,18328,13,5321,3493,2867,11,64694,11,323,23387,11503,13,1442,8581,11,1005,17889,3585,311,63179,2038,323,3493,9959,10507,13,87477,264,21277,16630,323,5766,503,71921,13,63297,279,1217,706,264,6913,8830,315,279,8712,627,72803,25,128009,128006,78191,128007,271,40,2846,1618,311,1520,449,904,4860,477,13650,499,4265,1093,311,13488,13,3639,596,389,701,4059,30],"total_duration":2086939458,"load_duration":41231750,"prompt_eval_count":81,"prompt_eval_duration":1102000000,"eval_count":23,"eval_duration":941000000}
+{"model":"llama3.2","created_at":"2025-02-16T00:21:48.723509Z","response":"I'm here to help with any questions or topics you'd like to explore. What's on your mind?","done":true,"done_reason":"stopped"}
 Response:
 - Date and Time: Sun Feb 16 05:51:48 2025
 - Reason for Response: The AI responded to the user's query.
