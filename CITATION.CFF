@@ -1,0 +1,62 @@
+cff-version: 1.2.0
+title: "Llama C++ Inference Terminal Application"
+message: "If you use this software, please cite it using these references."
+type: software
+authors:
+  - given-names: Niladri
+    family-names: Das
+repository-code: "https://github.com/bniladridas/cpp_terminal_app"
+abstract: "High-performance C++ terminal interface for Meta's Llama models featuring GPU acceleration and quantization support"
+license: MIT
+keywords:
+  - "Llama"
+  - "Meta"
+  - "C++"
+  - "LLM"
+  - "GPU Inference" 
+  - "Quantization"
+  - "GGML"
+version: 1.0.0
+date-released: "2025-03-30"
+
+# Primary citation for your work
+preferred-citation:
+  type: software
+  authors:
+    - given-names: Niladri
+      family-names: Das
+  title: "Llama C++ Inference Terminal Application"
+  year: 2025
+  version: "1.0.0"
+  url: "https://github.com/bniladridas/cpp_terminal_app"
+
+# Required citations for dependencies
+references:
+  - type: article
+    title: "Llama: Open and Efficient Foundation Language Models"
+    authors:
+      - family-names: "Touvron"
+        given-names: "Hugo"
+      - family-names: "Lavril"
+        given-names: "Thibaut"
+      # Include all original Llama paper authors
+    year: 2023
+    journal: "arXiv preprint"
+    doi: "10.48550/arXiv.2302.13971"
+    
+  - type: software
+    title: "llama.cpp"
+    authors:
+      - given-names: Georgi
+        family-names: Gerganov
+    year: 2023
+    url: "https://github.com/ggerganov/llama.cpp"
+
+acknowledgments:
+  - "This project builds upon Meta's Llama language models."
+  - "Thanks to the llama.cpp project for the core inference implementation."
+  - "Apple Silicon support based on MLX framework."
+
+contact:
+  - name: Niladri Das
+    email: "bniladridas@gmail.com" 
